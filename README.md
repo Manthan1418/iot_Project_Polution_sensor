@@ -24,15 +24,3 @@ Customize
 
 Publish
 - You can host this site using GitHub Pages: push the repo to GitHub and enable Pages from the `main` branch (use the repository root).
-
-What I need from you to finish polishing
-- Team member names and short bios
-- Photos for team members and a project logo (optional)
-- Preferred color accent (hex) or a sample site to match
-- Any project photos (wiring, breadboard, final build) to display in the wiring section
-
-Next steps I can do for you
-- Add image gallery and lightbox for project photos
-- Add downloadable PDF build guide
-- Add a section with step-by-step assembly photos
-- (Advanced) Add a simple backend and WebSocket or REST endpoint to show live sensor telemetry on the site
