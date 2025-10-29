@@ -33,6 +33,24 @@ body{
   background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(255,255,255,0.02));
   border:1px solid rgba(59,130,246,0.1);
 }
+.project-image {
+  width: 400px;
+  height: 300px;
+  margin: 0 auto 30px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(59,130,246,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.project-image:hover img {
+  transform: scale(1.05);
+}
 .hero h1{margin:0 0 6px;font-size:2.2rem}
 .lead{color:var(--muted);margin:0 0 18px}
 .btn{
@@ -208,6 +226,16 @@ pre{background:#0b1220;border-radius:10px;padding:14px;overflow:auto}
   .nav{display:none}
   .nav-toggle{display:block}
   .hero h1{font-size:1.6rem}
+  .project-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (max-width:400px){
+  .project-image {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /* small helpers */
