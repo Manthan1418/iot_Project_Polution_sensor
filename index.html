@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pollution Sensor Project — MQ135 + Arduino</title>
+    <meta name="description" content="Showcase of an MQ135 air-quality sensor project using Arduino Uno and 16x2 LCD" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (animations) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Prism for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">Pollution Sensor</a>
+        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false">☰</button>
+        <nav id="main-nav" class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#components">Components</a>
+          <a href="#wiring">Wiring</a>
+          <a href="#demo">Demo</a>
+          <a href="#code">Code</a>
+          <a href="#team">Team</a>
+        </nav>
+      </div>
+    </header>
+
+   <main>
+      <section class="hero" id="home">
+        <div class="container hero-inner" data-aos="fade-up">
+          <h1>MQ135 Pollution Detection Sensor</h1>
+          <p class="lead">A compact air-quality monitor built with MQ135, Arduino Uno and a 16x2 LCD — learn how it works and how to build it.</p>
+          <p class="hero-ctas">
+            <a class="btn" href="#wiring">See Wiring</a>
+            <a class="btn btn-ghost" href="#code">View Code</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="container card-section" id="overview" data-aos="fade-right">
+        <h2>What is this project?</h2>
+        <p>This project measures air quality (volatile compounds and gas concentration) using the MQ135 sensor. The sensor's analog output is read by an Arduino Uno and the measured value is shown on a 16x2 LCD. This demo site documents the components, wiring, code and assembly.</p>
+      </section>
+
+      <section class="container grid" id="components" data-aos="fade-left">
+        <div class="card">
+          <h3>Components</h3>
+          <ul>
+            <li>MQ135 gas sensor module</li>
+            <li>Arduino Uno</li>
+            <li>16x2 LCD (Hitachi HD44780 compatible)</li>
+            <li>Breadboard and jumper wires</li>
+            <li>USB cable and 5V power</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What you will learn</h3>
+          <ul>
+            <li>How to wire MQ135 to Arduino and LCD</li>
+            <li>How to read analog values and display them</li>
+            <li>Basic calibration notes and interpretation</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container" id="wiring" data-aos="fade-up">
+        <h2>Wiring & Assembly</h2>
+        <p>Connect the MQ135 analog output to an analog pin (A0) on the Arduino. If you use an MQ135 module it will have VCC (5V), GND and AO pins. Connect the 16x2 LCD using the standard 4-bit wiring with a potentiometer to adjust contrast.</p>
+
+        <div class="wiring-grid">
+          <div class="wiring-card">
+            <h4>MQ135 → Arduino</h4>
+            <ul>
+              <li>MQ135 VCC → 5V</li>
+              <li>MQ135 GND → GND</li>
+              <li>MQ135 AO → A0</li>
+            </ul>
+          </div>
+          <div class="wiring-card">
+            <h4>16x2 LCD → Arduino (4-bit)</h4>
+            <ul>
+              <li>LCD RS → D12</li>
+              <li>LCD E → D11</li>
+              <li>LCD D4 → D5</li>
+              <li>LCD D5 → D4</li>
+              <li>LCD D6 → D3</li>
+              <li>LCD D7 → D2</li>
+              <li>LCD VSS → GND, VCC → 5V, V0 (contrast) → pot wiper</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="container gallery-section" id="gallery" data-aos="fade-up">
+        <h2>Project Components</h2>
+        <p>Required components for building this air quality monitor:</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item" data-aos="zoom-in">
+            <img src="assets/Arduino_uno.png" alt="Arduino Uno board" />
+            <figcaption>Arduino Uno Board</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/mq-135_sensor.png" alt="MQ135 gas sensor" />
+            <figcaption>MQ135 Air Quality Sensor</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/breadboard.jpg" alt="Solderless breadboard" />
+            <figcaption>Solderless Breadboard</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/jumper wires.jpg" alt="Jumper wires" />
+            <figcaption>Jumper Wires</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+            <img src="assets/16x2_lcd_screen.png" alt="16x2 LCD Display" />
+            <figcaption>16x2 LCD Display</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="container" id="demo">
+        <div class="video-section" data-aos="fade-up">
+          <h2>Project Demo</h2>
+          <p>Watch the pollution sensor in action. See how it detects air quality changes and displays real-time readings on the LCD screen.</p>
+          
+          <div class="video-container" data-aos="zoom-in">
+            <!-- Replace the text below with your video embed code when ready -->
+            <div class="video-placeholder">
+              <div class="placeholder-content">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+                <p>Project demonstration video coming soon</p>
+                <p class="small">Click to play when ready</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container code-section" id="code" data-aos="zoom-in">
+        <h2>Arduino Sketch</h2>
+        <p>Below is the sketch used with the MQ135 sensor and 16x2 LCD. The code is included inline on the page so you can copy it directly.</p>
+
+        <div class="code-toolbar">
+          <button id="copy-code" class="btn small">Copy Code</button>
+        </div>
+
+        <pre><code class="language-cpp" id="arduino-code">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+#define MQ135_PIN A0   // MQ135 sensor connected to analog pin A0
+#define BUZZER_PIN 8   // Buzzer connected to digital pin 8
+
+int airQuality = 0;     // Variable to store sensor reading
+int threshold = 25;    // Pollution threshold value (adjust based on testing)
+
+// Create LCD object (try 0x27 first; if nothing shows, use 0x3F)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
+  
+  lcd.init();           // Initialize the LCD
+  lcd.backlight();      // Turn on LCD backlight
+  lcd.setCursor(0, 0);
+  lcd.print("Air Quality Mon");
+  lcd.setCursor(0, 1);
+  lcd.print("Initializing...");
+  delay(2000);
+  lcd.clear();
+}
+
+void loop() {
+  airQuality = analogRead(MQ135_PIN);  // Read analog value from MQ135
+  Serial.print("Air Quality Value: ");
+  Serial.println(airQuality);
+
+  lcd.setCursor(0, 0);
+  lcd.print("AQ Value: ");
+  lcd.print(airQuality);
+  lcd.print("   "); // Clear trailing digits
+
+  // Check if pollution exceeds threshold
+  if (airQuality > threshold) {
+    lcd.setCursor(0, 1);
+    lcd.print("Status: POLLUTED ");
+    digitalWrite(BUZZER_PIN, HIGH);
+  } else {
+    lcd.setCursor(0, 1);
+    lcd.print("Status: CLEAN    ");
+    digitalWrite(BUZZER_PIN, LOW);
+  }
+
+  delay(1000); // 1-second update rate
+}
+        </code></pre>
+      </section>
+
+      <section class="container" id="team" data-aos="fade-up">
+        <h2>Team</h2>
+        <p class="batch-info">Batch: 2023-2026 (Final Year)</p>
+        <div class="team-grid">
+          <div class="member card">
+            <img src="assets/person-placeholder.png" alt="Manthan"/>
+            <h4>Manthan-1088</h4>
+            <p>Team Lead</p>
+          </div>
+          <div class="member card">
+            <img src="assets/person-placeholder.png" alt="Manvir Singh"/>
+            <h4>Manvir Singh-1067</h4>
+            <p>Software Developer</p>
+          </div>
+          <div class="member card">
+            <img src="assets/person-placeholder.png" alt="Bhavik"/>
+            <h4>Bhavik-1071</h4>
+            <p>Documentation</p>
+          </div>
+          <div class="member card">
+            <img src="assets/person-placeholder.png" alt="Manthan"/>
+            <h4>Manthan-1088</h4>
+            <p>Documentation</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" id="contact" data-aos="fade-up">
+        <h2>Contact &amp; Credits</h2>
+        <p>Questions? Replace the team images in <code>assets/</code>, update names in <code>index.html</code>, and copy the sketch from the code block above into your Arduino IDE.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>&copy; 2025 Pollution Sensor Project — Built with MQ135 &amp; Arduino</small>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
